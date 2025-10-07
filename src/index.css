@@ -8,35 +8,47 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 280 60% 97%;
+    --foreground: 280 20% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 280 20% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 280 20% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 330 80% 65%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 260 70% 70%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 280 40% 90%;
+    --muted-foreground: 280 20% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 200 80% 65%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 280 30% 85%;
+    --input: 280 30% 92%;
+    --ring: 330 80% 65%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+    
+    --calculator-bg: 0 0% 100%;
+    --calculator-shadow: 330 80% 65% / 0.15;
+    --display-bg: 280 40% 96%;
+    --button-number: 0 0% 98%;
+    --button-number-hover: 280 40% 92%;
+    --button-operator: 260 70% 70%;
+    --button-operator-hover: 260 70% 65%;
+    --button-equals: 330 80% 65%;
+    --button-equals-hover: 330 80% 60%;
+    --button-clear: 0 70% 70%;
+    --button-clear-hover: 0 70% 65%;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +68,46 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 280 30% 12%;
+    --foreground: 280 10% 90%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 280 25% 16%;
+    --card-foreground: 280 10% 90%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 280 25% 16%;
+    --popover-foreground: 280 10% 90%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 330 80% 65%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 260 60% 60%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 280 20% 20%;
+    --muted-foreground: 280 10% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 200 80% 65%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 280 20% 25%;
+    --input: 280 20% 20%;
+    --ring: 330 80% 65%;
+    
+    --calculator-bg: 280 25% 16%;
+    --calculator-shadow: 330 80% 65% / 0.2;
+    --display-bg: 280 20% 12%;
+    --button-number: 280 20% 22%;
+    --button-number-hover: 280 20% 28%;
+    --button-operator: 260 60% 55%;
+    --button-operator-hover: 260 60% 60%;
+    --button-equals: 330 80% 60%;
+    --button-equals-hover: 330 80% 65%;
+    --button-clear: 0 70% 60%;
+    --button-clear-hover: 0 70% 65%;
+    
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +125,16 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-br from-background via-primary/5 to-secondary/10 text-foreground min-h-screen;
+  }
+}
+
+@layer utilities {
+  .calc-button-scale {
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .calc-button-scale:active {
+    transform: scale(0.95);
   }
 }
